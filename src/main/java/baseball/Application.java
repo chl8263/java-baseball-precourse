@@ -1,7 +1,11 @@
 package baseball;
 
+import baseball.game.BaseBallGame;
+import baseball.game.GameProvider;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        GameProvider gameProvider = GameProvider.from(BaseBallGame.newInstance());
+        gameProvider.start();
     }
 }
