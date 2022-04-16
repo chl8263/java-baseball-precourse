@@ -16,14 +16,15 @@ public class BaseBallGame extends Game{
 
     @Override
     public void play() {
-        playOneRound();
+        boolean keepPlaying;
+        do {
+            playOneRound();
+            keepPlaying = getPlaySign();
+        } while (keepPlaying);
     }
 
     private void playOneRound() {
         List<PlaceValue> answerNumbers = getAnswers();
-        for (PlaceValue i : answerNumbers)
-            System.out.print(i.getDigit() + " ");
-
         boolean isFinish;
         do {
             List<PlaceValue> triedNumbers = getUserTriedNumbers();
@@ -33,6 +34,20 @@ public class BaseBallGame extends Game{
         } while (!isFinish);
 
         showFinishMessage();
+    }
+
+    private boolean getPlaySign() {
+        Output.printInduceKeepPlaying();
+        String playSignString = Console.readLine();
+        if (!validatePlayingSign(playSignString)) {
+            showRestartAndExitErrorMessage();
+            return getPlaySign();
+        }
+        return Integer.parseInt(playSignString) == PlaySign.RESTART.getSignNumber();
+    }
+
+    private boolean validatePlayingSign(String playSign) {
+        return playSign.length() == 1 && Character.isDigit(playSign.charAt(0)) && (Integer.parseInt(playSign) == 1 || Integer.parseInt(playSign) == 2);
     }
 
     private List<PlaceValue> getUserTriedNumbers() {
@@ -70,5 +85,9 @@ public class BaseBallGame extends Game{
 
     private void showFinishMessage() {
         Output.printFinishMessage();
+    }
+
+    private void showRestartAndExitErrorMessage() {
+        Output.printRestartAndExitErrorMessage();
     }
 }
