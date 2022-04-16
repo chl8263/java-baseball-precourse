@@ -3,7 +3,6 @@ package baseball.domain;
 import java.util.Objects;
 
 public class PlaceValue {
-
     private int digit;
 
     public int getDigit() {
