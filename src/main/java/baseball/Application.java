@@ -8,6 +8,5 @@ public class Application {
     public static void main(String[] args) {
         GameProvider gameProvider = GameProvider.from(BaseBallGame.newInstance());
         gameProvider.start();
-        PlaceValueFactory.createPlaceValues(3, "123");
     }
 }

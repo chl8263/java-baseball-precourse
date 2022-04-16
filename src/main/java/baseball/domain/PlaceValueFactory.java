@@ -59,7 +59,7 @@ public class PlaceValueFactory {
         return pickNumber;
     }
 
-    public static int convertCharacterToInteger(char character) {
+    private static int convertCharacterToInteger(char character) {
         if (!Character.isDigit(character)) {
             throw new PlaceValueIllegalArgumentException(ERROR_CANNOT_RECEIVE_CHARACTER_NOT_ABLE_TO_CONVERT_INTEGER);
         }
@@ -78,7 +78,7 @@ public class PlaceValueFactory {
         if (number < 1 || number >9) throw new PlaceValueIllegalArgumentException(ERROR_CANNOT_RECEIVE_NUMBER_AGAINST_RULES);
     }
 
-    public static void validatePlaceValueString(int gameRulePlaceValueCount, String placeValueString) throws PlaceValueIllegalArgumentException {
+    private static void validatePlaceValueString(int gameRulePlaceValueCount, String placeValueString) throws PlaceValueIllegalArgumentException {
         if (placeValueString.isEmpty()) {
             throw new PlaceValueIllegalArgumentException(ERROR_CANNOT_RECEIVE_EMPTY_VALUE);
         } else if (placeValueString.length() > gameRulePlaceValueCount) {
