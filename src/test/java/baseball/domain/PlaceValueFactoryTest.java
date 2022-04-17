@@ -27,7 +27,7 @@ public class PlaceValueFactoryTest {
         assertThat(placeValueList).isNotNull();
         assertThat(placeValueList).isNotEmpty();
         assertThat(placeValueList.size()).isEqualTo(gameRulePlaceValueCount);
-        for (int i = 0; i < gameRulePlaceValueCount; i ++){
+        for (int i = 0; i < gameRulePlaceValueCount; i ++) {
             assertThat(placeValueList).containsAnyOf(placeValueList.get(i));
         }
     }
@@ -111,7 +111,7 @@ public class PlaceValueFactoryTest {
         assertThat(placeValueList).isNotNull();
         assertThat(placeValueList).isNotEmpty();
         assertThat(placeValueList.size()).isEqualTo(gameRulePlaceValueCount);
-        for (int i = 0; i < gameRulePlaceValueCount; i ++){
+        for (int i = 0; i < gameRulePlaceValueCount; i ++) {
             assertThat(placeValueList).containsAnyOf(placeValueList.get(i));
         }
     }
